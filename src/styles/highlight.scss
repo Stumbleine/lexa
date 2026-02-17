@@ -1,0 +1,74 @@
+.grmmrlns-highlight {
+  padding: 2px 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.grmmrlns-present-simple {
+  background-color: #fff3a3;
+}
+
+.grmmrlns-past-simple {
+  background-color: #b3e5ff;
+}
+
+.grmmrlns-present-continuous {
+  background-color: #c8f7c5;
+}
+
+.grmmrlns-future-will {
+  background-color: #f7c5f2;
+}
+
+.grmmrlns-tooltip {
+  position: absolute;
+  z-index: 999999;
+  max-width: 260px;
+  background: #1e1e1e;
+  color: #fff;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.4;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(4px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 999999;
+}
+
+.grmmrlns-tooltip.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.grmmrlns-tooltip-title {
+  font-weight: 600;
+  font-size: 12px;
+  margin-bottom: 4px;
+  letter-spacing: 0.3px;
+  text-transform: capitalize;
+}
+
+.grmmrlns-tooltip-desc {
+  opacity: 0.9;
+}
+
+.grmmrlns-tooltip-present-simple {
+  border-left: 4px solid #fff3a3;
+}
+
+.grmmrlns-tooltip-past-simple {
+  border-left: 4px solid #b3e5ff;
+}
+
+.grmmrlns-tooltip-present-continuous {
+  border-left: 4px solid #c8f7c5;
+}
+
+.grmmrlns-tooltip-future-will {
+  border-left: 4px solid #f7c5f2;
+}
+
