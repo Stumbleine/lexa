@@ -1,10 +1,13 @@
 {
-  "manifest_version": 3,
-  "name": "Lexa",
+ "manifest_version": 3,
+  "name": "Lexa - Grammar Highlighter",
   "version": "0.0.1",
-  "description": "Highlights English grammar structures on web pages.",
+  "description": "Highlights English grammar structures on web pages. Learn English while browsing!",
+  "author": "Cristhian Mercado Cespedes",
+  "homepage_url": "https://github.com/Stumbleine/lexa",
   "action": {
     "default_popup": "popup.html",
+    "default_title": "Lexa - Grammar Highlighter",
     "default_icon": {
       "32": "icons/icon32.png"
     }

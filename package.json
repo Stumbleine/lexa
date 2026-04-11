@@ -1,8 +1,23 @@
 {
-  "name": "grmmrlns",
+  "name": "lexa",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
+  "description": "Browser extension that highlights English grammar structures in real-time",
+  "author": "Cristhian Mercado Cespedes",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Stumbleine/lexa"
+  },
+  "keywords": [
+    "chrome-extension",
+    "grammar",
+    "english-learning",
+    "education",
+    "typescript",
+    "browser-extension"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

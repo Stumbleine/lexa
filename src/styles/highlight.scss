@@ -1,27 +1,51 @@
-.grmmrlns-highlight {
+.lexa-highlight {
   padding: 2px 4px;
   border-radius: 4px;
   cursor: pointer;
   transition: 0.2s ease;
 }
 
-.grmmrlns-present-simple {
+.lexa-present-simple {
   background-color: #fff3a3;
 }
 
-.grmmrlns-past-simple {
+.lexa-past-simple {
   background-color: #b3e5ff;
 }
 
-.grmmrlns-present-continuous {
+.lexa-present-continuous {
   background-color: #c8f7c5;
 }
 
-.grmmrlns-future-will {
+.lexa-future-will {
   background-color: #f7c5f2;
 }
 
-.grmmrlns-tooltip {
+.lexa-present-perfect {
+  background-color: #d5c6ff;
+}
+
+.lexa-past-perfect {
+  background-color: #c3b1ff;
+}
+
+.lexa-future-perfect {
+  background-color: #e0b3ff;
+}
+
+.lexa-present-perfect-continuous {
+  background-color: #ffd8a8;
+}
+
+.lexa-past-perfect-continuous {
+  background-color: #ffc078;
+}
+
+.lexa-future-perfect-continuous {
+  background-color: #ffa94d;
+}
+
+.lexa-tooltip {
   position: absolute;
   z-index: 999999;
   max-width: 260px;
@@ -39,12 +63,12 @@
   z-index: 999999;
 }
 
-.grmmrlns-tooltip.visible {
+.lexa-tooltip.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-.grmmrlns-tooltip-title {
+.lexa-tooltip-title {
   font-weight: 600;
   font-size: 12px;
   margin-bottom: 4px;
@@ -52,23 +76,30 @@
   text-transform: capitalize;
 }
 
-.grmmrlns-tooltip-desc {
+.lexa-tooltip-desc {
   opacity: 0.9;
 }
 
-.grmmrlns-tooltip-present-simple {
+.lexa-tooltip-present-simple {
   border-left: 4px solid #fff3a3;
 }
 
-.grmmrlns-tooltip-past-simple {
+.lexa-tooltip-past-simple {
   border-left: 4px solid #b3e5ff;
 }
 
-.grmmrlns-tooltip-present-continuous {
+.lexa-tooltip-present-continuous {
   border-left: 4px solid #c8f7c5;
 }
 
-.grmmrlns-tooltip-future-will {
+.lexa-tooltip-future-will {
   border-left: 4px solid #f7c5f2;
 }
 
+.lexa-tooltip-present-perfect { border-left: 4px solid #d5c6ff; }
+.lexa-tooltip-past-perfect { border-left: 4px solid #c3b1ff; }
+.lexa-tooltip-future-perfect { border-left: 4px solid #e0b3ff; }
+
+.lexa-tooltip-present-perfect-continuous { border-left: 4px solid #ffd8a8; }
+.lexa-tooltip-past-perfect-continuous { border-left: 4px solid #ffc078; }
+.lexa-tooltip-future-perfect-continuous { border-left: 4px solid #ffa94d; }

@@ -7,6 +7,13 @@ const ALL_RULES = [
   { id: "past-simple", label: "Past Simple" },
   { id: "present-continuous", label: "Present Continuous" },
   { id: "future-will", label: "Future (Will)" },
+  { id: "present-perfect", label: "Present Perfect" },
+  { id: "past-perfect ", label: "Past Perfect" },
+  { id: "future-perfect", label: "Future Perfect" },
+  { id: "present-perfect-continuous", label: "Present Perfect Continuous" },
+  { id: "past-perfect-continuous", label: "Past Perfect Continuous" },
+  { id: "future-perfect-continuous", label: "Future Perfect Continuous" },
+
 ];
 
 export default function App() {
@@ -14,6 +21,8 @@ export default function App() {
     enabled: false,
     activeRules: ALL_RULES.map((r) => r.id),
   });
+
+  /*
   const [stats, setStats] = useState({
     total: 0,
     stats: {} as Record<string, number>,
@@ -26,7 +35,7 @@ export default function App() {
       }
     });
   }, []);
-
+*/
   useEffect(() => {
     chrome.storage.sync.get(
       ["enabled", "activeRules"],
@@ -96,7 +105,6 @@ return (
   <div class="popup">
     <header class="header">
       <h2 class="logo">LEXA</h2>
-      <p class="tagline">Text, clarified.</p>
     </header>
 
     <div class="section toggle-section">
@@ -123,14 +131,15 @@ return (
     </div>
 
     <div class="section actions">
-      <button class="secondary" onClick={reanalyze}>
+      <button class="btn" onClick={reanalyze}>
         Re-analyze
       </button>
-      <button class="secondary" onClick={clearHighlights}>
+      <button class="btn" onClick={clearHighlights}>
         Clear
       </button>
     </div>
-
+{
+  /*
     <div class="section stats">
       <h3 class="section-title">Analysis</h3>
       <div class="stat-total">
@@ -147,6 +156,8 @@ return (
       ))}
     </div>
 
+  */
+}
     <footer class="footer">
       <span>v0.1</span>
       <span>Local processing</span>

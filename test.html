@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexa Test Suite - Grammar Highlighter Extension</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a2e;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 15px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 16px 24px;
+            border-bottom: 3px solid rgba(255,255,255,0.2);
+        }
+
+        .card-header h2 {
+            font-size: 1.4rem;
+            margin-bottom: 4px;
+        }
+
+        .card-header .tense-id {
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            opacity: 0.85;
+        }
+
+        .card-body {
+            padding: 24px;
+        }
+
+        .example {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 12px 16px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .example:last-child {
+            margin-bottom: 0;
+        }
+
+        .example-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .example-text {
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .section {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .section h3 {
+            color: #667eea;
+            margin-bottom: 16px;
+            font-size: 1.3rem;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 8px;
+        }
+
+        .edge-case {
+            background: #fff3cd;
+            border-left-color: #ffc107;
+        }
+
+        .edge-case .example-label {
+            color: #856404;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            padding: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .stats {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 20px;
+        }
+
+        .stats p {
+            margin: 5px 0;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .card-body {
+                padding: 16px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 20px;
+            }
+            .card {
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Lexa Grammar Test Suite</h1>
+            <p>Comprehensive test page for the Grammar Highlighter Extension</p>
+            <div class="badge">🎯 12 English Tenses • Edge Cases • Real-world Examples</div>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Present Simple</h2>
+                    <div class="tense-id">present-simple</div>
+                </div>
+                <div class="card-body">
+                    <div class="example">
+                        <div class="example-label">Affirmative</div>
+                        <div class="example-text">I need a coffee every morning.</div>
+                    </div>
+                    <div class="example">
+                        <div class="example-label">Third Person</div>
+                        <div class="example-text">She works at a marketing agency.</div>
+                    </div>
+                    <div class="example">
+                        <div class="example-label">Plural Subject</div>
+                        <div class="example-text">They live in Barcelona.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>Past Simple</h2>
+                    <div class="tense-id">past-simple</div>
+                </div>
+                <div class="card-body">
+                    <div class="example">
+                        <div class="example-label">Regular Verb</div>
+                        <div class="example-text">Yesterday, I walked to the park.</div>
+                    </div>
+                    <div class="example">
+                        <div class="example-label">Irregular Verb</div>
+                        <div class="example-text">She went to London last year.</div>
+                    </div>
+                    <div class="example">
+                        <div class="example-label">Regular (-ed)</div>
+                        <div class="example-text">We stopped at the red light.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>Present Continuous</h2>
+                    <div class="tense-id">present-continuous</div>
+                </div>
+                <div class="card-body">
+                    <div class="example">
+                        <div class="example-label">Affirmative</div>
+                        <div class="example-text">Right now, I am writing an important email.</div>
+                    </div>
+                    <div class="example">
+                        <div class="example-label">Third Person</div>
+                        <div class="example-text">He is studying for his final exams.</div>
+                    </div>
+                    <div class="example">
+                        <div class="example-label">Plural</div>
+                        <div class="example-text">They are building a new house.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>Future (Will)</h2>
+                    <div class="tense-id">future-will</div>
+                </div>
+                <div class="card-body">
+                    <div class="example">
+                        <div class="example-label">Affirmative</div>
+                        <div class="example-text">I will call you tomorrow.</div>
+                    </div>
+                    <div class="example">
+                        <div class="example-label">With Contraction</div>
+                        <div class="example-text">We 'll finish this project soon.</div>
+                    </div>
+                    <div class="example">
+                        <div class="example-label">Prediction</div>
+                        <div class="example-text">She will probably arrive late.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>Present Perfect</h2>
+                    <div class="tense-id">present-perfect</div>
+                </div>
+                <div class="card-body">
+                    <div class="example">
+                        <div class="example-label">Experience</div>
+                        <div class="example-text">I have visited Paris three times.</div>
+                    </div>
+                    <div class="example">
+                        <div class="example-label">Negative</div>
+                        <div class="example-text">She has never eaten sushi.</div>
+                    </div>
+                    <div class="example">
+                        <div class="example-label">Contraction</div>
+                        <div class="example-text">They 've already completed the report.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>Past Perfect</h2>
+                    <div class="tense-id">past-perfect</div>
+                </div>
+                <div class="card-body">
+                    <div class="example">
+                        <div class="example-label">Sequence of Events</div>
+                        <div class="example-text">When I arrived, the meeting had already started.</div>
+                    </div>
+                    <div class="example">
+                        <div class="example-label">Realization</div>
+                        <div class="example-text">She realized she had forgotten her keys.</div>
+                    </div>
+                    <div class="example">
+                        <div class="example-label">First Time</div>
+                        <div class="example-text">They had never seen such a beautiful sunset.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>Future Perfect</h2>
+                    <div class="tense-id">future-perfect</div>
+                </div>
+                <div class="card-body">
+                    <div class="example">
+                        <div class="example-label">Completion by Future Time</div>
+                        <div class="example-text">By next December, I will have graduated from university.</div>
+                    </div>
+                    <div class="example">
+                        <div class="example-label">Deadline</div>
+                        <div class="example-text">She will have finished the book by tomorrow.</div>
+                    </div>
+                    <div class="example">
+                        <div class="example-label">Contraction</div>
+                        <div class="example-text">They 'll have completed the renovation before summer.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>Present Perfect Continuous</h2>
+                    <div class="tense-id">present-perfect-continuous</div>
+                </div>
+                <div class="card-body">
+                    <div class="example">
+                        <div class="example-label">Duration</div>
+                        <div class="example-text">I have been waiting for you for two hours.</div>
+                    </div>
+                    <div class="example">
+                        <div class="example-label">Since/For</div>
+                        <div class="example-text">She has been studying English since 2020.</div>
+                    </div>
+                    <div class="example">
+                        <div class="example-label">Recent Activity</div>
+                        <div class="example-text">They 've been working on this project all week.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>Past Perfect Continuous</h2>
+                    <div class="tense-id">past-perfect-continuous</div>
+                </div>
+                <div class="card-body">
+                    <div class="example">
+                        <div class="example-label">Duration Before Past Event</div>
+                        <div class="example-text">Before the storm started, we had been driving for six hours.</div>
+                    </div>
+                    <div class="example">
+                        <div class="example-label">Cause and Effect</div>
+                        <div class="example-text">She was tired because she had been running.</div>
+                    </div>
+                    <div class="example">
+                        <div class="example-label">Interrupted Action</div>
+                        <div class="example-text">They had been waiting for the bus when it began to rain.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>Future Perfect Continuous</h2>
+                    <div class="tense-id">future-perfect-continuous</div>
+                </div>
+                <div class="card-body">
+                    <div class="example">
+                        <div class="example-label">Duration by Future Time</div>
+                        <div class="example-text">By the end of this year, I will have been working at this company for five years.</div>
+                    </div>
+                    <div class="example">
+                        <div class="example-label">Long-term Activity</div>
+                        <div class="example-text">She will have been teaching for two decades next month.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>⚠️ Edge Cases & False Positives (Should NOT be highlighted)</h3>
+            <div class="example edge-case">
+                <div class="example-label">Present Tense (NOT past simple)</div>
+                <div class="example-text">❌ I need water right now. (Present simple, not past)</div>
+            </div>
+            <div class="example edge-case">
+                <div class="example-label">Nouns/Adjectives ending in 'ed'</div>
+                <div class="example-text">❌ The red bed is comfortable. (Colors/nouns, not verbs)</div>
+            </div>
+            <div class="example edge-case">
+                <div class="example-label">'Have' as main verb (NOT present perfect)</div>
+                <div class="example-text">❌ She has a new car. (Possession, not auxiliary)</div>
+            </div>
+            <div class="example edge-case">
+                <div class="example-label">Adjective (NOT present continuous)</div>
+                <div class="example-text">❌ He is tired after work. (Adjective, not verb-ing)</div>
+            </div>
+            <div class="example edge-case">
+                <div class="example-label">Adjective (NOT future perfect)</div>
+                <div class="example-text">❌ They will be happy with the results. (Adjective, not past participle)</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>🔬 Complex Sentences (Multiple Tenses Combined)</h3>
+            <div class="example">
+                <div class="example-label">Mixed Tenses</div>
+                <div class="example-text">While I was walking to work, I realized that I had forgotten my keys, so I will have to go back home.</div>
+            </div>
+            <div class="example">
+                <div class="example-label">Perfect Continuous Chain</div>
+                <div class="example-text">She has been studying for three hours, and by 6 PM she will have been studying for five hours straight.</div>
+            </div>
+            <div class="example">
+                <div class="example-label">Conditional Past</div>
+                <div class="example-text">If they had arrived earlier, they would have seen the opening ceremony.</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>🚀 Lexa Grammar Highlighter Extension - Test Suite</p>
+            <p style="font-size: 0.85rem; margin-top: 10px;">Built to validate all 12 English tenses detection</p>
+        </div>
+    </div>
+</body>
+</html>
